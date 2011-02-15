@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{little-math-pet}
-  s.version = ""
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kostas Karachalios"]
-  s.date = %q{2011-02-14}
+  s.date = %q{2011-02-15}
   s.description = %q{LittleMathPet understands simple math expressions in string format with mutliple variables and returns the result of the expression}
   s.email = %q{kostas.karachalios@me.com}
   s.extra_rdoc_files = [
@@ -18,13 +18,18 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".document",
+    ".rvmrc",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
-    "VERSION"
+    "VERSION",
+    "lib/little_math_pet.rb",
+    "little-math-pet.gemspec",
+    "specs/little_math_pet_spec.rb"
   ]
-  s.homepage = %q{http://github.com/vrinek502/little-math-pet}
+  s.homepage = %q{http://github.com/vrinek/little-math-pet}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.2}
@@ -37,14 +42,17 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_development_dependency(%q<rspec>, ["~> 2.5.0"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.5.0"])
     else
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
+      s.add_dependency(%q<rspec>, ["~> 2.5.0"])
       s.add_dependency(%q<rspec>, ["~> 2.5.0"])
     end
   else
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
+    s.add_dependency(%q<rspec>, ["~> 2.5.0"])
     s.add_dependency(%q<rspec>, ["~> 2.5.0"])
   end
 end
