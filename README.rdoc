@@ -6,6 +6,13 @@ This is a simple math parser. It always returns in Float.
 
 == Examples
 
+Install:
+  gem install little_math_pet
+
+Require:
+  require "little_math_pet"
+
+Usage:
   LittleMathPet.new("5*12+8").calc # => 68.0
   LittleMathPet.new("5*(12+8)").calc # => 100.0
   
