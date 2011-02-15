@@ -13,16 +13,14 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "little-math-pet"
-  gem.homepage = "http://github.com/vrinek502/little-math-pet"
+  gem.homepage = "http://github.com/vrinek/little-math-pet"
   gem.license = "MIT"
   gem.summary = %Q{Parses math expressions and returns the result}
   gem.description = %Q{LittleMathPet understands simple math expressions in string format with mutliple variables and returns the result of the expression}
   gem.email = "kostas.karachalios@me.com"
   gem.authors = ["Kostas Karachalios"]
-  # Include your dependencies below. Runtime dependencies are required when using your gem,
-  # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-  #  gem.add_development_dependency 'rspec', '> 1.2.3'
+
+  gem.add_development_dependency 'rspec', '~> 2.5.0'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -35,3 +33,11 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+require 'rake/testtask'
+Rake::TestTask.new(:spec) do |test|
+  test.libs << 'lib'
+  test.pattern = 'specs/**/*_spec.rb'
+  test.verbose = true
+end
+task :default => :spec
