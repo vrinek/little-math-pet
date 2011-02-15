@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{little-math-pet}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kostas Karachalios"]
@@ -26,14 +26,21 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/little_math_pet.rb",
+    "little-math-pet-0.1.1.gem",
+    "little-math-pet-0.1.2.gem",
     "little-math-pet.gemspec",
-    "specs/little_math_pet_spec.rb"
+    "spec/little_math_pet_spec.rb",
+    "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/vrinek/little-math-pet}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.2}
   s.summary = %q{Parses math expressions and returns the result}
+  s.test_files = [
+    "spec/little_math_pet_spec.rb",
+    "spec/spec_helper.rb"
+  ]
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
