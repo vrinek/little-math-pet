@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{little-math-pet}
+  s.name = %q{little_math_pet}
   s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -26,9 +26,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/little_math_pet.rb",
-    "little-math-pet-0.1.1.gem",
-    "little-math-pet-0.1.2.gem",
-    "little-math-pet.gemspec",
+    "little_math_pet.gemspec",
     "spec/little_math_pet_spec.rb",
     "spec/spec_helper.rb"
   ]
