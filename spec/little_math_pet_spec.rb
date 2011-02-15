@@ -1,5 +1,4 @@
-require "./lib/little_math_pet.rb"
-require 'rspec'
+require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe LittleMathPet do
   context "when a single number is given" do
