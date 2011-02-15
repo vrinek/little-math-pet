@@ -1,6 +1,8 @@
-= little-math-pet
+= Little math pet
 
-Description goes here.
+This is a simple math parser.
+
+0.1 - It supports addition/subtraction, multiplication/division, exponents and brackets in their correct order.
 
 == Contributing to little-math-pet
  
