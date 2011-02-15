@@ -19,8 +19,6 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{LittleMathPet understands simple math expressions in string format with mutliple variables and returns the result of the expression}
   gem.email = "kostas.karachalios@me.com"
   gem.authors = ["Kostas Karachalios"]
-
-  gem.add_development_dependency 'rspec', '~> 2.5.0'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
