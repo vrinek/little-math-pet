@@ -7,7 +7,7 @@ describe LittleMathPet do
       "78.65" => 78.65,
       "-3.5"  => -3.5
     }
-    
+
     equations.each do |equation, result|
       it "returns that number in float (#{equation} = #{result})" do
         LittleMathPet.new(equation).calc.should == result
@@ -25,14 +25,14 @@ describe LittleMathPet do
       "-15/5" => -3.0,
       "2^3"   => 8.0
     }
-    
+
     equations.each do |equation, result|
       it "solves the equation (#{equation} = #{result})" do
         LittleMathPet.new(equation).calc.should == result
       end
     end
   end
-  
+
   context "when a more complex equation is given" do
     equations = {
       "5+3+10" => 18.0,
@@ -42,7 +42,7 @@ describe LittleMathPet do
       "15/5*2" => 6.0,
       "-15/5*7" => -21.0
     }
-    
+
     equations.each do |equation, result|
       it "solves the equation (#{equation} = #{result})" do
         LittleMathPet.new(equation).calc.should == result
@@ -63,7 +63,7 @@ describe LittleMathPet do
       end
     end
   end
-  
+
   context "when a different grammar is used for the equation" do
     equations = {
       "5*3:10" => 1.5,
@@ -78,14 +78,14 @@ describe LittleMathPet do
       end
     end
   end
-  
+
   context "when something unkown is given as math" do
     equations = [
       "five * 5",
       "something else",
       "+*+"
     ]
-    
+
     equations.each do |equation|
       it "raises an exception (#{equation.inspect})" do
         begin
@@ -110,7 +110,7 @@ describe LittleMathPet do
       "-9/x^2" => -1.0,
       "x*(2+3)/2" => 7.5
     }
-    
+
     equations.each do |equation, result|
       it "uses it in place of x (#{equation} = #{result})" do
         LittleMathPet.new(equation).calc(:x => value).should == result
@@ -126,14 +126,14 @@ describe LittleMathPet do
       "5^a/10/b" => 0.5,
       "b*(a+3)/2" => 12.5
     }
-    
+
     equations.each do |equation, result|
       it "uses them in place of the variables (#{equation} = #{result})" do
         LittleMathPet.new(equation).calc(values).should == result
       end
     end
   end
-  
+
   context "when some variables are missing" do
     values = {:a => 2, :b => 5}
     equations = [
@@ -142,7 +142,7 @@ describe LittleMathPet do
       "c^a/10/b",
       "v*(e+3)/2"
     ]
-    
+
     equations.each do |equation, result|
       it "raises an exception (#{equation.inspect})" do
         begin
