@@ -5,7 +5,8 @@ describe LittleMathPet do
     equations = {
       "8"     => 8.0,
       "78.65" => 78.65,
-      "-3.5"  => -3.5
+      "-3.5"  => -3.5,
+      "30%"   => 0.3
     }
 
     equations.each do |equation, result|
@@ -17,13 +18,16 @@ describe LittleMathPet do
 
   context "when a simple equation is given" do
     equations = {
-      "5+3"   => 8.0,
-      "7-5"   => 2.0,
-      "5-7"   => -2.0,
-      "5*3"   => 15.0,
-      "15/5"  => 3.0,
-      "-15/5" => -3.0,
-      "2^3"   => 8.0
+      "5+3"     => 8.0,
+      "7-5"     => 2.0,
+      "5-7"     => -2.0,
+      "5*3"     => 15.0,
+      "15/5"    => 3.0,
+      "-15/5"   => -3.0,
+      "2^3"     => 8.0,
+      "12+50%"  => 18.0,
+      "120*25%" => 30.0,
+      "7 / 50%" => 14.0
     }
 
     equations.each do |equation, result|
@@ -40,7 +44,8 @@ describe LittleMathPet do
       "5-7+6" => 4.0,
       "5*3/10" => 1.5,
       "15/5*2" => 6.0,
-      "-15/5*7" => -21.0
+      "-15/5*7" => -21.0,
+      "12+10+50%+20%" => 30,
     }
 
     equations.each do |equation, result|
@@ -54,7 +59,8 @@ describe LittleMathPet do
       "10+3*5" => 25.0,
       "5-7/2" => 1.5,
       "-8/2^2" => -2.0,
-      "(5+2)*2" => 14.0
+      "(5+2)*2" => 14.0,
+      "(5+2)+50%" => 10.5,
     }
 
     equations.each do |equation, result|
@@ -69,7 +75,8 @@ describe LittleMathPet do
       "5*3:10" => 1.5,
       "-8/2**2" => -2.0,
       "5 + 7" => 12.0,
-      "[5+2] : 2" => 3.5
+      "[5+2] : 2" => 3.5,
+      "100 + 40 %" => 140,
     }
 
     equations.each do |equation, result|
