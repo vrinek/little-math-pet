@@ -2,7 +2,8 @@
 
 This is a simple math parser. It always returns in Float.
 
-0.1 - It supports addition/subtraction, multiplication/division, exponents and brackets in their correct order.
+0.1 - Supports addition/subtraction, multiplication/division, exponents and brackets in their correct order.
+0.2 - Supports percentage calculations.
 
 == Examples
 
@@ -15,7 +16,8 @@ Require:
 Usage:
   LittleMathPet.new("5*12+8").calc # => 68.0
   LittleMathPet.new("5*(12+8)").calc # => 100.0
-  
+  LittleMathPet.new("60-20%").calc # => 48.0
+
 It also can handle variables
   LittleMathPet.new("5*a+8").calc(:a => 4) # => 28.0
   LittleMathPet.new("a*b+c^d").calc(:a => 4, :b => 3, :c => 2, :d => 5) # => 44.0
@@ -25,7 +27,7 @@ It also can handle variables
 Mostly ruby (+ - * / ** and ()) but can also accept : for division, ^ for exponents and [] for bracketing. It will also not mind about spaces.
 
 == Contributing to little-math-pet
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
