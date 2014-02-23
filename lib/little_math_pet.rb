@@ -26,6 +26,21 @@ class LittleMathPet
 
     @math = @math.gsub(/\[/, '(')
     @math = @math.gsub(/\]/, ')')
+
+    # If we add/subtract a percent, we multiply/divide by `1 + (percent / 100)`
+    @math.gsub!(/(\+|\-)(#{NUMBER_RX})%/) do |match|
+      case $1
+      when "+"
+        "*#{1 + ($2.to_f / 100)}"
+      when "-"
+        "*#{1 - ($2.to_f / 100)}"
+      end
+    end
+
+    # All other percents: just divide by 100
+    @math.gsub!(/(#{NUMBER_RX})%/) do |num|
+      $1.to_f / 100
+    end
   end
 
   def calc(variables = {})
@@ -45,7 +60,7 @@ class LittleMathPet
   # This is the top level method which deals with the various cases
   def do_math(math)
     case math
-    when /\([^\)]+\)/
+    when /\([^\)]+\)/ # match parentheses
       math = math.gsub(/\(([^\)]+)\)/) do |match|
         do_math($1)
       end
@@ -64,7 +79,7 @@ class LittleMathPet
       raise 'Invalid math expression'
     end
   end
-  
+
   # This is the actual solver that invokes the marh Procs
   def solve_math(math)
     parts = math.split(/#{SIGN_RX}/)
