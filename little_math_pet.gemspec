@@ -4,21 +4,22 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{little_math_pet}
-  s.version = "0.1.3"
+  s.name = "little_math_pet"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kostas Karachalios"]
-  s.date = %q{2011-02-15}
-  s.description = %q{LittleMathPet understands simple math expressions in string format with mutliple variables and returns the result of the expression}
-  s.email = %q{kostas.karachalios@me.com}
+  s.date = "2014-02-23"
+  s.description = "LittleMathPet understands simple math expressions in string format with mutliple variables and returns the result of the expression"
+  s.email = "kostas.karachalios@me.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
   ]
   s.files = [
     ".document",
-    ".rvmrc",
+    ".ruby-version",
+    ".travis.yml",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
@@ -30,11 +31,11 @@ Gem::Specification.new do |s|
     "spec/little_math_pet_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/vrinek/little-math-pet}
+  s.homepage = "http://github.com/vrinek/little-math-pet"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.2}
-  s.summary = %q{Parses math expressions and returns the result}
+  s.rubygems_version = "1.8.23"
+  s.summary = "Parses math expressions and returns the result"
   s.test_files = [
     "spec/little_math_pet_spec.rb",
     "spec/spec_helper.rb"
@@ -44,9 +45,9 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
-      s.add_development_dependency(%q<rspec>, ["~> 2.5.0"])
+      s.add_runtime_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_runtime_dependency(%q<jeweler>, ["~> 1.5.2"])
+      s.add_runtime_dependency(%q<rspec>, ["~> 2.5.0"])
     else
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
