@@ -46,6 +46,10 @@ describe LittleMathPet do
       "15/5*2" => 6.0,
       "-15/5*7" => -21.0,
       "12+10+50%+20%" => 30,
+      "-6 * 5" => -30,
+      "6 * -5" => -30,
+      "30 / -3" => -10,
+      "-30 / -3" => 10,
     }
 
     equations.each do |equation, result|
@@ -61,6 +65,19 @@ describe LittleMathPet do
       "-8/2^2" => -2.0,
       "(5+2)*2" => 14.0,
       "(5+2)+50%" => 10.5,
+    }
+
+    equations.each do |equation, result|
+      it "respects the proper math order (#{equation} = #{result})" do
+        LittleMathPet.new(equation).calc.should == equations[equation]
+      end
+    end
+  end
+
+  context "when an equation with multiple parenthesis is given" do
+    equations = {
+      "5 - (-3 - (-8 / 2))" => 4.0,
+      "((7 - 2) * 6) / 2" => 15.0,
     }
 
     equations.each do |equation, result|
@@ -86,7 +103,7 @@ describe LittleMathPet do
     end
   end
 
-  context "when something unkown is given as math" do
+  context "when something unknown is given as math" do
     equations = [
       "five * 5",
       "something else",
@@ -99,7 +116,7 @@ describe LittleMathPet do
           LittleMathPet.new(equation).calc
           true.should == false
         rescue => e
-          e.message.should == 'Invalid math expression'
+          e.message.should =~ /Invalid math expression/
         end
       end
     end

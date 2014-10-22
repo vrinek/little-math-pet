@@ -1,9 +1,11 @@
 class LittleMathPet
   # This is used to match numbers in regular expressions
-  NUMBER_RX = '([\+\-]?\d+(\.\d+)?)'
+  NUMBER_RX = '[\+\-]?\d+(?:\.\d+)?'
 
   # This is used to match mathematical signs in regular expressions
-  SIGN_RX = '([\+\-\/\*\^])'
+  SIGN_RX = '[\+\-\/\*\^]'
+
+  PARENTHESES_CAPTURE_RX = /\(([^\(\)]+)\)/
 
   # The proper math order (power, multiplication/division and addiction/subtraction)
   MATH_ORDER = [%w[^], %w[* /], %w[+ -]]
@@ -60,35 +62,35 @@ class LittleMathPet
   # This is the top level method which deals with the various cases
   def do_math(math)
     case math
-    when /\([^\)]+\)/ # match parentheses
-      math = math.gsub(/\(([^\)]+)\)/) do |match|
+    when PARENTHESES_CAPTURE_RX # match parentheses
+      math = math.gsub(PARENTHESES_CAPTURE_RX) do |match|
         do_math($1)
       end
 
       do_math(math)
-    when /^#{NUMBER_RX}(#{SIGN_RX}#{NUMBER_RX})+$/
+    when /^#{NUMBER_RX}(?:#{SIGN_RX}#{NUMBER_RX})+$/
       solve_math(math)
     when /^#{NUMBER_RX}$/
       math.to_f
     when /^#{SIGN_RX}$/
       math
-    when ""
-      # this appears when '-5' gets split to ['', '-', '5']
-      0.0
     else
-      raise 'Invalid math expression'
+      raise "Invalid math expression: #{math}"
     end
   end
 
   # This is the actual solver that invokes the marh Procs
   def solve_math(math)
-    parts = math.split(/#{SIGN_RX}/)
+    first_number, rest = math.scan(/^(#{NUMBER_RX})((?:#{SIGN_RX}#{NUMBER_RX})+)$/).flatten
+    parts = ([first_number] + rest.scan(/(#{SIGN_RX})(#{NUMBER_RX})/)).flatten
+    # at this point, `parts` consists of math signs and numbers in string format
 
     until parts.all?{|p| p.to_s[/^#{SIGN_RX}$/] or p.is_a?(Float)}
       parts.collect! do |part|
         do_math(part)
       end
     end
+    # at this point, `parts consists of math signs and numbers in float format
 
     # reduces the math expression one process at a time until we have a number
     until parts.length == 1
