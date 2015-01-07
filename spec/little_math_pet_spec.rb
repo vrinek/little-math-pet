@@ -103,6 +103,19 @@ describe LittleMathPet do
     end
   end
 
+  context "when using curly brackets" do
+    equations = {
+      "{5*3}:10" => 1.5,
+      "-8/{2**2}" => -2.0,
+    }
+
+    equations.each do |equation, result|
+      it "solves the equation (#{equation} = #{result})" do
+        LittleMathPet.new(equation).calc.should == result
+      end
+    end
+  end
+
   context "when something unknown is given as math" do
     equations = [
       "five * 5",
