@@ -1,3 +1,4 @@
+# encoding: utf-8
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe LittleMathPet do
@@ -94,6 +95,9 @@ describe LittleMathPet do
       "5 + 7" => 12.0,
       "[5+2] : 2" => 3.5,
       "100 + 40 %" => 140,
+      "12 ÷ 4 + 5" => 8,
+      "2 × 8 - 7" => 9,
+      "2 × [8 - 7]" => 2,
     }
 
     equations.each do |equation, result|

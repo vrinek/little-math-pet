@@ -1,3 +1,4 @@
+# encoding: utf-8
 class LittleMathPet
   # This is used to match numbers in regular expressions
   NUMBER_RX = '[\+\-]?\d+(?:\.\d+)?'
@@ -23,8 +24,11 @@ class LittleMathPet
     @math = math_expression
     @math = @math.gsub(/\s/, '') # no spaces allowed
 
+    @math = @math.gsub(/\÷/, '/') # 4÷2 -> 4/2
     @math = @math.gsub(/\:/, '/') # 4:2 -> 4/2
     @math = @math.gsub(/\*\*/, '^') # 4**2 -> 4^2 to make it easier to differantiate from 4*2
+
+    @math = @math.gsub(/\×/, '*') # 4×2 -> 4*2
 
     @math = @math.gsub(/\[/, '(')
     @math = @math.gsub(/\]/, ')')
