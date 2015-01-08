@@ -29,6 +29,9 @@ class LittleMathPet
     @math = @math.gsub(/\[/, '(')
     @math = @math.gsub(/\]/, ')')
 
+    @math = @math.gsub(/\{/, '(')
+    @math = @math.gsub(/\}/, ')')
+
     # If we add/subtract a percent, we multiply/divide by `1 + (percent / 100)`
     @math.gsub!(/(\+|\-)(#{NUMBER_RX})%/) do |match|
       case $1
