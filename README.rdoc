@@ -25,7 +25,7 @@ It also can handle variables
 
 == Syntax
 
-Mostly ruby (+ - * / ** and ()) but can also accept : for division, ^ for exponents and [] for bracketing. It will also not mind about spaces.
+Mostly ruby (+ - * / ** and ()) but can also accept : for division, ^ for exponents, [] and {} for bracketing. It will also not mind about spaces.
 
 == Contributing to little-math-pet
 
