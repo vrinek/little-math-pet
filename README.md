@@ -30,6 +30,8 @@ Mostly ruby (+ - * / ** and ()) but can also accept `:` and `÷` for division, `
 
 0.4 - Add support for `{}` and a couple more operators
 
+0.5 - General housekeeping (update README, get rid of Jeweler, more travis testing)
+
 ## Contributing to little-math-pet
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
