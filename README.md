@@ -1,10 +1,8 @@
 # Little math pet
 
+[![Build Status](https://travis-ci.org/vrinek/little-math-pet.svg?branch=master)](https://travis-ci.org/vrinek/little-math-pet)
+
 This is a simple math parser. It always returns in Float.
-
-0.1 - Supports addition/subtraction, multiplication/division, exponents and brackets in their correct order.
-
-0.2 - Supports percentage calculations.
 
 ## Examples
 
@@ -21,6 +19,16 @@ LittleMathPet.new("a*b+c^d").calc(:a => 4, :b => 3, :c => 2, :d => 5) # => 44.0
 ## Syntax
 
 Mostly ruby (+ - * / ** and ()) but can also accept `:` and `÷` for division, `×` (that's a unicode character, not the lowercase X) for multiplication, `^` for exponents, `[]` and `{}` for bracketing. It will also not mind about spaces.
+
+## Changelog
+
+0.1 - Supports addition/subtraction, multiplication/division, exponents and brackets in their correct order.
+
+0.2 - Supports percentage calculations.
+
+0.3 - Nested parentheses
+
+0.4 - Add support for `{}` and a couple more operators
 
 ## Contributing to little-math-pet
 
