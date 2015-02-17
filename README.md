@@ -1,4 +1,4 @@
-= Little math pet
+# Little math pet
 
 This is a simple math parser. It always returns in Float.
 
@@ -6,28 +6,23 @@ This is a simple math parser. It always returns in Float.
 
 0.2 - Supports percentage calculations.
 
-== Examples
+## Examples
 
-Install:
-  gem install little_math_pet
+```ruby
+LittleMathPet.new("5*12+8").calc # => 68.0
+LittleMathPet.new("5*(12+8)").calc # => 100.0
+LittleMathPet.new("60-20%").calc # => 48.0
 
-Require:
-  require "little_math_pet"
+# It also can handle variables
+LittleMathPet.new("5*a+8").calc(:a => 4) # => 28.0
+LittleMathPet.new("a*b+c^d").calc(:a => 4, :b => 3, :c => 2, :d => 5) # => 44.0
+```
 
-Usage:
-  LittleMathPet.new("5*12+8").calc # => 68.0
-  LittleMathPet.new("5*(12+8)").calc # => 100.0
-  LittleMathPet.new("60-20%").calc # => 48.0
+## Syntax
 
-It also can handle variables
-  LittleMathPet.new("5*a+8").calc(:a => 4) # => 28.0
-  LittleMathPet.new("a*b+c^d").calc(:a => 4, :b => 3, :c => 2, :d => 5) # => 44.0
+Mostly ruby (+ - * / ** and ()) but can also accept `:` and `÷` for division, `×` (that's a unicode character, not the lowercase X) for multiplication, `^` for exponents, `[]` and `{}` for bracketing. It will also not mind about spaces.
 
-== Syntax
-
-Mostly ruby (+ - * / ** and ()) but can also accept : for division, ^ for exponents, [] and {} for bracketing. It will also not mind about spaces.
-
-== Contributing to little-math-pet
+## Contributing to little-math-pet
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -37,8 +32,7 @@ Mostly ruby (+ - * / ** and ()) but can also accept : for division, ^ for expone
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2011 Kostas Karachalios. See LICENSE.txt for
 further details.
-

@@ -160,12 +160,13 @@ describe LittleMathPet do
   end
 
   context "when multiple variables are given (a => 2, b => 5)" do
-    values = {:a => 2, :b => 5}
+    values = {:a => 2, :b => 5, :x => 12}
     equations = {
       "5+a+10/b" => 9.0,
       "7-5-a*b" => -8.0,
       "5^a/10/b" => 0.5,
-      "b*(a+3)/2" => 12.5
+      "b*(a+3)/2" => 12.5,
+      "x^2" => 144,
     }
 
     equations.each do |equation, result|
